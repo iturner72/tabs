@@ -1,0 +1,252 @@
+% Guitar chords
+% Author: Christoph
+% Source: http://rio.eta-ori.net/latex-chords/chords.sty
+%         http://rio.eta-ori.net/latex-chords/example.tex
+\documentclass{article}
+\usepackage{subfig}
+\usepackage{tikz}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{float}
+%% Code from chords.sty
+% Counters
+\newcounter{chords-string}
+\newcounter{chords-fret}
+
+% Variables
+\newcommand{\chordreset}{
+  \def\chordtuning{E,A,D,G,B,E}
+  \def\chordfretstart{1}
+  \def\chordfretend{4}
+}
+\chordreset
+
+% The chord environmant
+% \begin{chord}
+% \begin{chord}[D,G,D,G,H,E]
+\newenvironment{chord}
+{
+  % A single note
+  % \single <string> <fret> <finger>
+  \newcommand{\single}[3]{
+    \draw node[single] at (##1,##2) {##3};
+  }
+  % A bar
+  % \bar <startstring> <fret> <finger>
+  \renewcommand{\bar}[3]{
+    \draw[bar] (##1,##2) -- node[midway] {##3} (1,##2);
+  }
+  % No strike
+  % \nostrike <string>
+  \newcommand{\nostrike}[1]{
+    \draw[nostrike] (##1,\chordfretstart-.5) +(-135:.2cm) -- +(45:.2cm);
+    \draw[nostrike] (##1,\chordfretstart-.5) +(135:.2cm) -- +(-45:.2cm);
+  }
+  \begin{tikzpicture}[
+    single/.style={draw,circle,fill=white},
+    bar/.style={cap=round,double,double distance=9pt},
+    nostrike/.style={line width=.6mm},
+    cm={0,-0.6,.8,0,(0,0)}
+  ]
+  \setcounter{chords-string}{6}
+  \foreach \tuning in \chordtuning
+  {
+    \node at (\value{chords-string},\chordfretstart-1) {\tuning};
+    \addtocounter{chords-string}{-1}
+  }
+  \draw[yshift=-0.5cm] (1,\chordfretstart) grid (6,\chordfretend+1);
+
+  \foreach \fret in {\chordfretstart,...,\chordfretend}
+  {
+    \setcounter{chords-fret}\fret
+    \draw node at (0,\fret) {\Roman{chords-fret}};
+  }
+}
+{
+  \end{tikzpicture}
+}
+
+%% End of chords.sty file
+\title{THE GROWLERS - WHAT IT IS}
+\author{Ian Turner}
+
+\begin{document}
+\maketitle
+
+\begin{figure}[H]
+\subfloat[D7]{
+\begin{chord}
+  \nostrike 6
+  \nostrike 5
+  \single 3 2 1
+  \single 2 3 3
+  \single 1 2 2
+\end{chord}
+\chordreset}
+%
+\subfloat[gm]{
+\def\chordfretstart{3} % start diagram at 5th fret
+\def\chordfretend{6}   % end diagram at 8th fret
+\begin{chord}
+  \bar 6 3 1
+  \single 5 5 3
+  \single 4 5 4
+  \nostrike 6 % do not strike 6th string
+\end{chord}
+\chordreset}
+%
+\subfloat[Bbm]{
+\begin{chord}
+    \bar 5 1 1
+    \single 4 3 3
+    \single 3 3 4
+    \single 2 2 2
+    \nostrike 6
+\end{chord}
+\chordreset}
+%
+\newline
+\subfloat[Bb]{
+\begin{chord}
+    \bar 5 1 1
+    \single 4 3 2
+    \single 3 3 3
+    \single 2 3 4
+    \nostrike 6
+\end{chord}
+\chordreset}
+%
+\subfloat[A]{
+    \begin{chord}
+    \single 4 2 1
+    \single 3 2 2
+    \single 2 2 3
+    \nostrike 6
+\end{chord}
+\chordreset}
+%
+\subfloat[Eb]{
+    \begin{chord}
+    \single 4 1 1
+    \single 3 3 2
+    \single 2 4 3
+    \single 1 3 4
+    \nostrike 6
+    \nostrike 5
+\end{chord}
+\chordreset}
+%
+\newline
+\subfloat[D]{
+    \begin{chord}
+    \single 3 2 1
+    \single 2 3 3
+    \single 1 2 2
+    \nostrike 6
+    \nostrike 5
+\end{chord}
+\chordreset}
+%
+\subfloat[Cm]{
+    \def\chordfretstart{3} % start diagram at 5th fret
+    \def\chordfretend{6}   % end diagram at 8th fret
+    \begin{chord}
+    \bar 5 3 1
+    \single 4 4 3
+    \single 3 4 4
+    \single 2 5 2
+    \nostrike 6
+\end{chord}
+\chordreset}
+%
+\end{figure}
+\newpage
+
+\textbf{\textit{The Growlers - What It Is}}
+
+\section*{Intro}
+\textbf{D7}\\
+\textbf{Gm}\\
+\textbf{D7}
+
+\section*{Theme 1 verse 1}
+\textbf{Gm}\\
+Thick heads oh you don’t believe\\
+Until the spirit has crept in between your sheets\\
+\textbf{D7}\\
+Oh what it is, oh what it is
+
+\section*{Theme 1 verse 2}
+\textbf{Gm}\\
+That’s just a draft and you imagined a laugh
+Discredit the gasp for he’s been pullin’ the schnapps
+\textbf{D7}\\
+Oh what it is\\
+Oh what it is
+
+\section*{Theme 1 verse 3}
+         \textbf{Gm}\\
+From the patriarch to the man in the book\\
+Insane to the saints they have all been shook\\
+\textbf{D7}\\
+Oh what it is\\
+Oh what it is
+
+\section*{Theme 2 verse 1}
+\textbf{Gm}                   \textbf{Bbm}\\
+Things aren’t always what they seem\\
+\textbf{Gm}                  \textbf{Bbm}\\
+Demons or ghosts or a rumpot’s dream\\
+\textbf{Gm}                \textbf{Bbm}\\
+Sleep deprived or hypnotized\\
+\textbf{Bb}           \textbf{A}               \textbf{Eb}      \textbf{D}\\
+Easy to throw aside until it’s in your eyes
+
+\section*{Theme 2 verse 2}
+\textbf{Gm}     \textbf{Bbm}                \textbf{Gm}\\
+I am a man of no specific faith\\
+\textbf{Bbm}                     \textbf{Gm}\\
+I have no knowledge of beyond the grave\\
+\textbf{Bbm}\\
+But I can’t deny\\
+\textbf{Bb}         \textbf{A}      \textbf{Eb} \textbf{D}\\
+The dead don’t always die
+
+\section*{Theme 2 verse 3}
+\textbf{Gm}            \textbf{Bbm}                    \textbf{Gm}\\
+I have seen a ghost and it was no mistake
+\textbf{Bbm}                          \textbf{Gm}\\
+It was as clear as all the drinks I’ve drank
+\textbf{Bbm}\\
+But I swear I was dry
+\textbf{Bb}         \textbf{A}      \textbf{Eb} \textbf{D}\\
+The dead don’t always die
+
+\section*{Interlude}
+Gm     Bb
+Gm
+Bb     Gm
+D
+Gm     Cm
+Gm
+Gm
+Bb  A  Eb D
+
+\section*{Theme 2 verse 4}
+\textbf{Gm}         \textbf{Bbm}           \textbf{Gm}\\
+I was no believer in the tales of fear\\
+\textbf{Bbm}\\
+To think that Lucifer was always here\\
+\textbf{Gm}\\
+ That may be a lie\\
+ \textbf{Bb}         \textbf{A}      \textbf{Eb} \textbf{D}\\
+The dead don’t always die\\
+\textbf{Gm}        \textbf{Bbm}                         \textbf{Gm}\\
+Life is a blessin’ ‘til you meet your death\\
+\textbf{Gm}                    \textbf{Bbm}          \textbf{Gm}\\
+Make good with your living breath, make good with life\\
+\textbf{Bb}  \textbf{A}   \textbf{Eb}  \textbf{D}   \textbf{Gm}\\
+You may ne- ver die\\
+\textbf{Eb} \textbf{D}  \textbf{Bb}  \textbf{Gm}\\
+E- ternal life
+
+\end{document}
