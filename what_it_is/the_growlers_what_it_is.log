@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.5)  22 AUG 2022 20:22
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.10.5)  24 OCT 2022 22:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -384,15 +384,15 @@ LaTeX Font Info:    External font `cmex10' loaded for size
 
 {/usr/local/texlive/2020/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] (./the_growlers_what_it_is.aux) ) 
 Here is how much of TeX's memory you used:
- 13631 strings out of 479917
- 279112 string characters out of 5882713
- 573701 words of memory out of 5000000
- 30007 multiletter control sequences out of 15000+600000
+ 13635 strings out of 479917
+ 279194 string characters out of 5882713
+ 573646 words of memory out of 5000000
+ 30011 multiletter control sequences out of 15000+600000
  539395 words of font info for 43 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  96i,10n,99p,439b,853s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
-Output written on the_growlers_what_it_is.pdf (3 pages, 85980 bytes).
+Output written on the_growlers_what_it_is.pdf (3 pages, 86362 bytes).
 PDF statistics:
  45 PDF objects out of 1000 (max. 8388607)
  32 compressed objects within 1 object stream
